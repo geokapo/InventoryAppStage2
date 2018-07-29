@@ -151,7 +151,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 } else {
                     givenQuantity = Integer.parseInt ( quantity );
                     // to validate if quantity is greater than =
-                    if ((givenQuantity - 1) >= 0) {
+                    if ((givenQuantity - 1) > 0) {
                         mCrochetQuantityEditText.setText ( String.valueOf ( givenQuantity - 1 ) );
                     } else {
                         Toast.makeText ( EditorActivity.this, R.string.editor_quantity_cant_be_less_then_0, Toast.LENGTH_SHORT ).show ();
