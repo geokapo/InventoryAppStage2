@@ -8,7 +8,7 @@ public class CrochetContract {
 
     public static final String CONTENT_AUTHORITY = "com.example.georgia.inventoryappstage2";
     public static final Uri BASE_CONTENT_URI = Uri.parse ( "content://" + CONTENT_AUTHORITY );
-    // The uri can go 2 paths later. This path is for the whole table clothes
+    // The uri can go 2 paths later. This path is for the whole table crochet
     public static final String PATH_CROCHET = "crochet";
 
 
