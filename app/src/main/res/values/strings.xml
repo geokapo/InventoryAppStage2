@@ -7,7 +7,7 @@
     <string name="insert_dummy_data">Insert Dummy Data </string>
 
     <!-- Label for overflow menu option that deletes all crochet data in the app [CHAR LIMIT=20] -->
-    <string name="delete_all_crochet">Delete All Crochet </string>
+    <string name="delete_all_entries">Delete All Crochet </string>
 
 
     <!-- Label for editor menu option to save crochet and leave editor [CHAR LIMIT=20] -->

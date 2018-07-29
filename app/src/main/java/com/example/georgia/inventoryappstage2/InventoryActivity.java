@@ -8,6 +8,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -58,7 +60,7 @@ public class InventoryActivity extends AppCompatActivity implements android.supp
         //sets the CursorAdapter on the Listview to create a list item for each row of the crochet data in the Cursor
         //There is no crochet data yet(until the loader finishes) so pass in null for the Cursor.
         mCursorAdapter = new CrochetCursorAdapter ( this, null );
-        crochetListView.setAdapter ( (ListAdapter) mCursorAdapter );
+        crochetListView.setAdapter ( mCursorAdapter );
 
         crochetListView.setOnItemClickListener ( new AdapterView.OnItemClickListener () {
             @Override
@@ -97,17 +99,17 @@ public class InventoryActivity extends AppCompatActivity implements android.supp
         switch (item.getItemId ()) {
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.insert_dummy_data:
-                insertProduct ();
+                insertCrochet ();
                 return true;
             // Respond to a click on the "Delete all entries" menu option
-            case R.id.action_delete_all_crochet:
+            case R.id.action_delete_all_entries:
                 deleteAllCrochet ();
                 return true;
         }
         return super.onOptionsItemSelected ( item );
     }
 
-    private void insertProduct() {
+    private void insertCrochet() {
 
         ContentValues values = new ContentValues ();
 
@@ -139,7 +141,7 @@ public class InventoryActivity extends AppCompatActivity implements android.supp
                 CrochetEntry.COLUMN_CROCHET_QUANTITY,
         };
 
-        return new android.support.v4.content.CursorLoader ( this,
+        return new CursorLoader ( this,
                 CrochetEntry.CONTENT_URI,
                 projection,
                 null,
@@ -149,14 +151,14 @@ public class InventoryActivity extends AppCompatActivity implements android.supp
     }
 
     @Override
-    public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
         mCursorAdapter.swapCursor ( data );
 
     }
 
     @Override
-    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
+    public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor ( null );
 
     }

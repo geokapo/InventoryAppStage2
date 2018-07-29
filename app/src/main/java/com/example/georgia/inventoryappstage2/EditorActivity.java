@@ -178,27 +178,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         } );
     }
 
-    @Override
-    public void onBackPressed() {
-        // If the crochet editing has not changed, continue with handling back button press
-        if (!mCrochetHasChanged) {
-            super.onBackPressed ();
-            return;
-        }
-        //Otherwise if there are unsaved changes, setup a dialog to warn the user.
-        // Create a click listener to handle the user confirming that changes should be discarded.
-        DialogInterface.OnClickListener discardButtonClickListener =
-                new DialogInterface.OnClickListener () {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        //User clicked "Discard" button, close the current activity-
-                        finish ();
-
-                    }
-                };
-        //Show the dialog that there are unsaved changes
-        showUnsavedChangedDialog ( discardButtonClickListener );
-    }
 
     private void saveProductCrochet() {
 
@@ -264,7 +243,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 //If the new content URI is null, then there was an error with insertion.
                 Toast.makeText ( this, getString ( R.string.editor_insert_crochet_failed ), Toast.LENGTH_SHORT ).show ();
             } else {
-                //Otherwise, the insertion was succesful and we can display a toast.
+                //Otherwise, the insertion was successful and we can display a toast.
                 Toast.makeText ( this, getString ( R.string.editor_insert_crochet_successful ), Toast.LENGTH_SHORT ).show ();
             }
 
@@ -278,7 +257,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
             int rowsAffected = getContentResolver ().update ( mCurrentCrochetUri, values, null, null );
 
-            //Show a toast message depending on whether or not the update was succesful.
+            //Show a toast message depending on whether or not the update was successful.
             if (rowsAffected == 0) {
                 //If no rows were affected, then there was an error with the update.
                 Toast.makeText ( this, getString ( R.string.editor_insert_crochet_failed ), Toast.LENGTH_SHORT ).show ();
@@ -316,7 +295,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         switch (item.getItemId ()) {
             case R.id.action_save:
                 saveProductCrochet ();
-
+                // Exit activity
+                finish ();
                 return true;
 
             // Respond to a click on the "Delete" menu option
@@ -327,7 +307,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             //Respond to a click on the "Up" arrow button in the app bar
             case android.R.id.home:
                 //If the product crochet has not changed, continue with navigating up to parent activity
-                // which is the {@link MainActivity}.
+                // which is the {@link InventoryActivity}.
                 if (!mCrochetHasChanged) {
                     NavUtils.navigateUpFromSameTask ( EditorActivity.this );
                     return true;
@@ -352,9 +332,32 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     @Override
+    public void onBackPressed() {
+        // If the crochet editing has not changed, continue with handling back button press
+        if (!mCrochetHasChanged) {
+            super.onBackPressed ();
+            return;
+        }
+        //Otherwise if there are unsaved changes, setup a dialog to warn the user.
+        // Create a click listener to handle the user confirming that changes should be discarded.
+        DialogInterface.OnClickListener discardButtonClickListener =
+                new DialogInterface.OnClickListener () {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //User clicked "Discard" button, close the current activity-
+                        finish ();
+
+                    }
+                };
+        //Show the dialog that there are unsaved changes
+        showUnsavedChangedDialog ( discardButtonClickListener );
+    }
+
+
+    @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         //since the editor show all the crochet attributes, define a projection that contains
-        // all columns from the clothes table
+        // all columns from the crochet table
         String[] projection = {
                 CrochetEntry._ID,
                 CrochetEntry.COLUMN_CROCHET_NAME,
@@ -422,30 +425,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     /**
      * Perform the deletion of the crochet animals in the database
      */
-
-    private void deleteCrochet() {
-
-        //Only perform the delete if this is an existing product.
-        if (mCurrentCrochetUri != null) {
-            //Call the ContentResolver to delete the product at the given content URI.
-            // Pass in null for the selection and selection args because the mCurrentCrochetUri
-            // content Uri already identifies the product that we want.
-
-            int rowsDeleted = getContentResolver ().delete ( mCurrentCrochetUri, null, null );
-
-            // Show a toast message depending on whether or not the delete was successful.
-            if (rowsDeleted == 0) {
-                //If no rows were deleted, then there was an error with the delete.
-                Toast.makeText ( this, getString ( R.string.editor_delete_crochet_product_failed ), Toast.LENGTH_SHORT ).show ();
-            } else {
-                //Otherwise, the delete was successful and we can display a toast.
-                Toast.makeText ( this, getString ( R.string.editor_delete_crochet_product_successful ), Toast.LENGTH_SHORT ).show ();
-            }
-        }
-        // Close the activity
-        finish ();
-    }
-
     private void showDeleteConfirmationDialog() {
         //Create an AlertDialog.Builder and set the message, and click listeners
         // for the positive and negative buttons on the dialog.
@@ -496,6 +475,30 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         //Create and show the AlertDialog
         AlertDialog alertDialog = builder.create ();
         alertDialog.show ();
+    }
+
+
+    private void deleteCrochet() {
+
+        //Only perform the delete if this is an existing product.
+        if (mCurrentCrochetUri != null) {
+            //Call the ContentResolver to delete the product at the given content URI.
+            // Pass in null for the selection and selection args because the mCurrentCrochetUri
+            // content Uri already identifies the product that we want.
+
+            int rowsDeleted = getContentResolver ().delete ( mCurrentCrochetUri, null, null );
+
+            // Show a toast message depending on whether or not the delete was successful.
+            if (rowsDeleted == 0) {
+                //If no rows were deleted, then there was an error with the delete.
+                Toast.makeText ( this, getString ( R.string.editor_delete_crochet_product_failed ), Toast.LENGTH_SHORT ).show ();
+            } else {
+                //Otherwise, the delete was successful and we can display a toast.
+                Toast.makeText ( this, getString ( R.string.editor_delete_crochet_product_successful ), Toast.LENGTH_SHORT ).show ();
+            }
+        }
+        // Close the activity
+        finish ();
     }
 
 }
