@@ -147,7 +147,7 @@ public class CrochetProvider extends ContentProvider {
             throw new IllegalArgumentException ( " A name of the supplier must be filled in" );
         }
 
-        Long supplierPhoneNumber = values.getAsLong ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER );
+        String supplierPhoneNumber = values.getAsString ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER );
         if (supplierPhoneNumber == null)
             throw new IllegalArgumentException ( " A valid phone number must be filled in" );
 
@@ -275,7 +275,7 @@ public class CrochetProvider extends ContentProvider {
         //If the {@link CrochetEntry#COLUMN_CROCHET_PHONE_NUMBER key is present,
         // check that the phone number value is valid.
         if (values.containsKey ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER )) {
-            Long supplierPhoneNumber = values.getAsLong ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER );
+            String supplierPhoneNumber = values.getAsString ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER );
             if (supplierPhoneNumber == null) {
                 throw new IllegalArgumentException ( "Please insert a valid phone number" );
             }
