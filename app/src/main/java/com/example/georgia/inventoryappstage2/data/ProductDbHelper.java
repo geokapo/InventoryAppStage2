@@ -31,7 +31,7 @@ public class ProductDbHelper extends SQLiteOpenHelper {
                 + CrochetEntry.COLUMN_CROCHET_PRICE + " INTEGER NOT NULL, "
                 + CrochetEntry.COLUMN_CROCHET_QUANTITY + " INTEGER, "
                 + CrochetEntry.COLUMN_CROCHET_SUPPLIER_NAME + " TEXT, "
-                + CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER + " LONG NOT NULL);";
+                + CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER + "  NOT NULL);";
 
         db.execSQL ( SQL_CREATE_CROCHET_TABLE );
     }

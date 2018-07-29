@@ -142,7 +142,7 @@ public class CrochetProvider extends ContentProvider {
         if (quantity != null && quantity < 0) {
             throw new IllegalArgumentException ( "The quantity must be 0 or above" );
         }
-        String supplierName = values.getAsString ( CrochetEntry.COLUMN_CROCHET_NAME );
+        String supplierName = values.getAsString ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_NAME );
         if (supplierName == null) {
             throw new IllegalArgumentException ( " A name of the supplier must be filled in" );
         }

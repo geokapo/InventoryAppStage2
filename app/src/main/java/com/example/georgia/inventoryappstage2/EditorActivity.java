@@ -233,7 +233,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_NAME, supplierNameString );
         values.put ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER, supplierPhoneNumberString );
 
-        //Determine if this a new or an existing product of crochet by checking if mCurrentClothesUri is null or not
+        //Determine if this a new or an existing product of crochet by checking if mCurrentCrochetUri is null or not
         if (mCurrentCrochetUri == null) {
             // this is a NEW product, so insert a new product into the provider,
             // returning the content URI for the new crochet product-
@@ -295,8 +295,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         switch (item.getItemId ()) {
             case R.id.action_save:
                 saveProductCrochet ();
-                // Exit activity
-                finish ();
                 return true;
 
             // Respond to a click on the "Delete" menu option
