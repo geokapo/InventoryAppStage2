@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Inventory App Stage 2</string>
+    <string name="empty_view_title_text">It\'s a bit lonely here...</string>
+    <string name="empty_view_subtitle_text">Get started adding crochet animals</string>
+
+    <!-- Label for overflow menu option that inserts fake clothe data into the app [CHAR LIMIT=20] -->
+    <string name="insert_dummy_data">Insert Dummy Data </string>
+
+    <!-- Label for overflow menu option that deletes all crochet data in the app [CHAR LIMIT=20] -->
+    <string name="delete_all_crochet">Delete All Crochet </string>
+
+
+    <!-- Label for editor menu option to save crochet and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current clothes [CHAR LIMIT=20]-->
+    <string name="action_delete">Delete</string>
+
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Hint for the edit text field product name in the editor activity-->
+    <string name="hint_for_product_name_editor">Crochet Name</string>
+
+    <!-- Hint for the edit text field price in the editor activity -->
+    <string name="hint_for_the_price_editor_field"> price</string>
+
+
+    <!-- Label for the quantity in the detail overview -->
+    <string name="quantity_text_view_info">Select Quantity</string>
+
+    <!-- Label for the Supplier name -->
+    <string name="supplier_name_info">Supplier Name</string>
+
+    <!-- Hint for the supplier Name-->
+    <string name="hint_for_supplier_name">Please fill in a Supplier Name</string>
+
+    <!-- Label for the supplier phone Number-->
+    <string name="supplier_phone_number">Supplier Phone Number</string>
+
+    <!-- HInt for the supplier phone Number -->
+    <string name="hint_for_the_supplier_phone_number">Supplier phone number</string>
+
+    <!-- title for the editor activity to insert a new product of crochet-->
+    <string name="editor_activity_title_new_product_Crochet">Add new product of crochet</string>
+
+    <!-- title for the editor activity to edit an existing produc of crochet-->
+    <string name="editor_activity_title_edit_existing_product_crochet">Edit the product</string>
+
+    <!-- Dialog message when user is leaving editor but has not saved changes -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a users changes -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current crochet-->
+    <string name="keep_editing">Keep editing</string>
+
+
+    <!-- Toast message in editor when new crochet product has failed to be inserted-->
+    <string name="editor_insert_crochet_failed">Error with saving new crochet product</string>
+
+    <!-- Toast message in editor when new crochet product has been successfully inserted -->
+    <string name="editor_insert_crochet_successful">Crochet animal saved</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current crochet -->
+    <string name="delete_dialog_msg">Delete this crochet animal?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current crochet -->
+    <string name="delete">Delete</string>
+
+    <!-- question for when the name of the product is empty -->
+    <string name="editor_question_for_empty_field_name">What is the name of crochet animal?</string>
+
+    <!-- question for the price of the product is empty -->
+    <string name="editor_question_for_empty_field_price">What is the price for crochet animal?</string>
+
+    <!-- question for when the quantity for the product is empty -->
+    <string name="editor_question_for_empty_field_quantity">What is the quantity?</string>
+
+    <!-- question for when the supplier name field is empty -->
+    <string name="editor_question_for_empty_field_supplier_name">What is the name of the supplier?</string>
+
+    <!-- question for when the supplier phone number field is empty -->
+    <string name="editor_question_for_empty_field_supplier_phone_number">What is the phone number of the supplier?</string>
+
+
+    <!-- Toast message in editor when the current crochet product has failed to be deleted -->
+    <string name="editor_delete_crochet_product_failed">Error with deleting crochet animal</string>
+
+    <!-- Toast message in editor when the current crochet product was successfully deleted -->
+    <string name="editor_delete_crochet_product_successful">Crochet animal deleted</string>
+
+
+    <!-- Dialog button text for the option to cancel deletion of the current crochet product -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Toast when there is nothing filled in -->
+    <string name="editor_fill_in">Please fill in the blank fields</string>
+
+    <!-- Toast when quantity edit text is left empty -->
+    <string name="editor_quantity_field_cant_be_empty">Please select quantity</string>
+
+    <!-- Toast that quantity cant be less then 0-->
+    <string name="editor_quantity_cant_be_less_then_0">Quantity can/t be less then 0</string>
+</resources>
