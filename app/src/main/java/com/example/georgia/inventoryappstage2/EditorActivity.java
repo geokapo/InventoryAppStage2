@@ -230,7 +230,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put ( CrochetEntry.COLUMN_CROCHET_NAME, productNameCrochetString );
         values.put ( CrochetEntry.COLUMN_CROCHET_PRICE, priceCrochetString );
         values.put ( CrochetEntry.COLUMN_CROCHET_QUANTITY, quantityCrochetString );
-        values.put ( CrochetEntry.COLUMN_CROCHET_NAME, supplierNameString );
+        values.put ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_NAME, supplierNameString );
         values.put ( CrochetEntry.COLUMN_CROCHET_SUPPLIER_PHONE_NUMBER, supplierPhoneNumberString );
 
         //Determine if this a new or an existing product of crochet by checking if mCurrentClothesUri is null or not
@@ -398,14 +398,14 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             int price = cursor.getInt ( priceColumnIndex );
             int quantity = cursor.getInt ( quantityColumnIndex );
             String supplierName = cursor.getString ( supplierNameColumnIndex );
-            long supplierPhoneNumber = cursor.getLong ( supplierPhoneNumberColumnIndex );
+            String supplierPhoneNumber = cursor.getString ( supplierPhoneNumberColumnIndex );
 
             //Update the views on the screen with the values from the database
             mCrochetNameEditText.setText ( productName );
             mCrochetPriceEditText.setText ( Integer.toString ( price ) );
             mCrochetQuantityEditText.setText ( Integer.toString ( quantity ) );
             mSupplierNameEditText.setText ( supplierName );
-            mSupplierPhoneNumberEditText.setText ( Long.toString ( supplierPhoneNumber ) );
+            mSupplierPhoneNumberEditText.setText  ( supplierPhoneNumber );
 
         }
 
